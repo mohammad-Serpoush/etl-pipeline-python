@@ -1,0 +1,28 @@
+services:
+  source-s3:
+    image: bitnami/minio:2022.12.7
+    container_name: "source_etl_storage"
+    ports:
+      - "9100:9000"
+      - "9101:9001"
+    volumes:
+      - source_data:/data
+    environment:
+      MINIO_ROOT_USER: "${S3_ROOT_USER}"
+      MINIO_ROOT_PASSWORD: "${S3_ROOT_PASSWORD}"
+
+  destination-s3:
+    image: bitnami/minio:2022.12.7
+    container_name: "destination_etl_storage"
+    ports:
+      - "9200:9000"
+      - "9201:9001"
+    volumes:
+      - destination_data:/data
+    environment:
+      MINIO_ROOT_USER: "${S3_ROOT_USER}"
+      MINIO_ROOT_PASSWORD: "${S3_ROOT_PASSWORD}"
+
+volumes:
+  source_data:
+  destination_data:
