@@ -5,3 +5,4 @@ ipykernel
 scipy
 seaborn
 psycopg2-binary
+minio
