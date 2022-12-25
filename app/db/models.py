@@ -20,10 +20,3 @@ class Base:
     def __tablename__(cls) -> str:
         return p.plural(cls.__name__.lower())
 
-
-class Sample(Base):
-    __tablename__ = "sample"
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
-
-    title = Column(String(1024), nullable=True)
