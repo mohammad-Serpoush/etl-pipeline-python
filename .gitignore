@@ -130,3 +130,6 @@ dmypy.json
 
 
 data/
+
+blogs.json
+news.json
